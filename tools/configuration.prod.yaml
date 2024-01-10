@@ -1,0 +1,6 @@
+apimServiceName:rg-cicd-prod
+namedValues:
+loggers:   
+diagnostics:   
+backends:
+apis:
