@@ -28,6 +28,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev # change this to match the dev environment created in settings 
     steps:
+      - uses: azure/login@v1
+        with: 
+           creds: '${{ secrets.AZURE_CREDENTIALS }}'   
+           enable-AzPSSession: true
       - uses: actions/checkout@v3
           
       - name: Run extractor without Config Yaml
