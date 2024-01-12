@@ -36,7 +36,7 @@ jobs:
            clientSecret: "OWR8Q~8TfzGUTYB.3vWpcfOm7RBK96O3J5z6lcqq"
            subscriptionId": "9ee346c8-8d47-4bf6-957a-81d9265d68a0"
            enable-AzPSSession: true
-           azPSVersion: "latest"
+         
            
       - uses: actions/checkout@v3          
       - name: Run extractor without Config Yaml
