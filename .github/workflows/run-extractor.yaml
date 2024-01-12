@@ -32,7 +32,6 @@ jobs:
       - uses: azure/login@v1
         with: 
            creds: '${{ secrets.AZURE_CREDENTIALS }}'   
-           subscriptionId": "9ee346c8-8d47-4bf6-957a-81d9265d68a0"
            enable-AzPSSession: true
          
            
