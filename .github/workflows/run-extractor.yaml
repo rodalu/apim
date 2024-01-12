@@ -26,7 +26,7 @@ env:
      
 jobs:
   extract:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest with Azure login
     environment: dev # change this to match the dev environment created in settings 
     steps:
       - uses: azure/login@v1
@@ -36,9 +36,9 @@ jobs:
            clientSecret: "OWR8Q~8TfzGUTYB.3vWpcfOm7RBK96O3J5z6lcqq"
            subscriptionId": "9ee346c8-8d47-4bf6-957a-81d9265d68a0"
            enable-AzPSSession: true
+           azPSVersion: "latest"
            
-      - uses: actions/checkout@v3
-          
+      - uses: actions/checkout@v3          
       - name: Run extractor without Config Yaml
         if: ${{ github.event.inputs.CONFIGURATION_YAML_PATH == 'Extract All APIs' }}
         env:
@@ -78,6 +78,7 @@ jobs:
       - name: Run extractor with Config Yaml
         if: ${{ github.event.inputs.CONFIGURATION_YAML_PATH != 'Extract All APIs' }}
         env:
+          creds: '${{ secrets.AZURE_CREDENTIALS }}'
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
           AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
